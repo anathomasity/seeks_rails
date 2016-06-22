@@ -1,0 +1,15 @@
+<form action="/users/<%= @user[:id]%>" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<input type="hidden"name="_method"value="patch">
+	Name: <input type="text" name="user[name]" id="Name" value="<%= @user[:name]%>"></input>
+	Email:<input type="text" name="user[email]" id="Email" value="<%= @user[:email]%>"></input>
+	<input type="submit" value="Update" id='Update'></input>
+</form>
+
+<a href= "/users/<%= @user.id %>" data-method='delete'>Delete Account</a>
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |error| %>
+		<p><%= error %></p>
+	<% end %>
+<% end %>

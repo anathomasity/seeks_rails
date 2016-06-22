@@ -1,0 +1,12 @@
+<form action="/login" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	Email:<input type="text" name="user[email]" id="Email"></input>
+	Password:<input type="password" name="user[password]" id="Password"></input>
+	<input type="submit" value="Log In" id="Log In"></input>
+</form>
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |error| %>
+		<p><%= error %></p>
+	<% end %>
+<% end %>
